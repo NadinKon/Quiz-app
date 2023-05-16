@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: python app.py
+    volumes:
+      - .:/app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      #- DATABASE_URL=postgresql://postgres:password@db:5432/quiz_db
+      - DATABASE_URL=postgresql://postgres:password@db/quiz_db
+
+  db:
+    image: postgres:13
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=quiz_db
+
+volumes:
+  postgres_data:
