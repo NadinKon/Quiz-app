@@ -1,4 +1,7 @@
-# Quiz-app
+## Quiz-app 
+Сервис принимающий на вход запросы с содержимым вида {"questions_num": integer}.
+После получения запроса, запрашивает с публичного API (англоязычные вопросы для викторин) https://jservice.io/api/random?count=1 указанное в полученном запросе количество вопросов и сохраняет уникальные в bd.
+
 
 ### Установка и запуск:
 Клонируйте репозиторий и перейдите в рабочую директорию
@@ -32,3 +35,4 @@ docker-compose down
 docker volume rm your_repository_dbdata
 
 
+*Made with Flask and SQLAlchemy
